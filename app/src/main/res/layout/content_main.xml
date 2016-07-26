@@ -5,21 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="@android:color/black"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.barber.shop.queue.system.MainActivity"
+    tools:context="com.barber.shop.queue.system.views.activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
+        android:background="@android:color/holo_green_light"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/queue_listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <!-- TODO: Insert fragments here -->
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -31,23 +32,34 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/add_customer_button"
+            android:id="@+id/button_view_queue"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="View Queue"
+            />
+
+        <Button
+            android:id="@+id/button_add_customer"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:text="Join Queue"
             />
 
         <Button
-            android:id="@+id/remove_customer_button"
+            android:id="@+id/button_remove_customer"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:text="Leave Queue"
             />
 
         <Button
-            android:id="@+id/refresh_queue_button"
+            android:id="@+id/button_refresh_queue"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:text="Refresh Queue"
             />
 

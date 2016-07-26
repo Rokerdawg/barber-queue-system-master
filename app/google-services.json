@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "227719646585",
+    "firebase_url": "https://barbershopqueuesystem.firebaseio.com",
+    "project_id": "barbershopqueuesystem",
+    "storage_bucket": "barbershopqueuesystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227719646585:android:7f15d76477e8a99a",
+        "android_client_info": {
+          "package_name": "com.barber.shop.queue.system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227719646585-0fv6ra2ch9arqsloume6o2c7gvmluo0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbz5eKWM0XsFfTDcrFdzWmRKz-y3TsxYE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

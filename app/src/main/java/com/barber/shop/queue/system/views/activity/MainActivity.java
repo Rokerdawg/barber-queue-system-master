@@ -1,9 +1,9 @@
 package com.barber.shop.queue.system.views.activity;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -13,12 +13,14 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.barber.shop.queue.system.views.fragment.LoginFragment;
 import com.barber.shop.queue.system.views.fragment.QueueListFragment;
 import com.barber.shop.queue.system.views.fragment.RegisterFragment;
+import com.firebase.client.Firebase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
+
+import service.DefaultServiceManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         QueueListFragment.OnFragmentInteractionListener, RegisterFragment.OnRegisterFragmentInteractionListener,
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView mQueueList;
     ViewGroup mRootView;
     LinearLayout mFragmentsContainer;
-    boolean userMustRegister = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(mToolbar);
         setClickListeners();
         setInitalFragment(savedInstanceState);
+
+        Firebase.setAndroidContext(this);
+        DefaultServiceManager mConnectDB = new DefaultServiceManager();
+        mConnectDB.getDBConnection();
 
     }
 //TODO - IMPLEMENT ONVALUECHANGED IN ONSTART()
@@ -76,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    }
 
     private void initViews() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mJoinQueueButton = (Button) findViewById(R.id.button_add_customer);
         mLeaveQueueButton = (Button) findViewById(R.id.button_remove_customer);
         mRefreshQueueButton = (Button) findViewById(R.id.button_refresh_queue);
@@ -96,6 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+    }
+
     private void setInitalFragment(Bundle savedInstanceState) {
         if (mFragmentsContainer != null) {
             QueueListFragment qListFragment = new QueueListFragment();
@@ -103,13 +113,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             }
             qListFragment.setArguments(getIntent().getExtras());
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, qListFragment).commit();
         }
     }
 
     public void switchFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(mFragmentsContainer.getId(), fragment);
         transaction.addToBackStack(null);
         transaction.commit();

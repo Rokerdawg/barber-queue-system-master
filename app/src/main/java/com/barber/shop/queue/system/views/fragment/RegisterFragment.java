@@ -69,13 +69,6 @@ public class RegisterFragment extends Fragment {
         mLoginLink = (TextView)v.findViewById(R.id.button_switch_to_login);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onRegisterFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

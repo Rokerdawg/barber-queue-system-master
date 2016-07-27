@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.barber.shop.queue.system.views.activity.MainActivity;
 import com.queue.shop.barber.barbershopqueuesystem.R;
@@ -78,6 +79,12 @@ public class LoginFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnLoginFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     public interface OnLoginFragmentInteractionListener {

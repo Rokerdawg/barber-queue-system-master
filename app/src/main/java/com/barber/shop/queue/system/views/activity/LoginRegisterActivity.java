@@ -37,9 +37,10 @@ public class LoginRegisterActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        mToolbar = (Toolbar) findViewById(R.id.login_register_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //TODO: remove?
+//        mToolbar = (Toolbar) findViewById(R.id.login_register_toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mCollapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         mCollapsingToolbar.setTitle("Derry Barbers");

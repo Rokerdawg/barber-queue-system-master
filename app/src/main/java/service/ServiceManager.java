@@ -14,4 +14,6 @@ public interface ServiceManager {
     void addCustomerToDB();
     void removeCustomerFromDB();
     void refreshDB();
+    void storeUserRegistration();
+    void loginUser();
 }

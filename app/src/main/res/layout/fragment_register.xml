@@ -1,186 +1,157 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="590dp"
-    android:layout_height="740dp"
-    android:background="@drawable/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/american_crew_splash"
     tools:context="com.barber.shop.queue.system.views.fragment.RegisterFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@color/transparent_overlay">
+        android:background="@color/transparent_overlay"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="80dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/derry_barber_company_logo" />
+
+        <!-- Name Label -->
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="30dp">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:src="@drawable/derry_barber_company_logo" />
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Name Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/name"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textCapWords" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <!-- phone Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/date_of_birth"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- phone Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_telephone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/telephone"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="phone" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <!-- Confirm phone Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_confirm_telephone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/confirm_telephone"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="phone" />
-
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!--  Email Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/email"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textEmailAddress" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <!-- Password Label -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/input_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/password"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textPassword" />
-
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
-            <!-- Signup Button -->
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/submit_register_button"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="14dp"
-                android:background="@android:color/white"
+                android:hint="@string/name"
                 android:imeOptions="flagNoExtractUi"
-                android:text="@string/create_account" />
+                android:inputType="textCapWords" />
 
+        </android.support.design.widget.TextInputLayout>
 
-            <Button
-                android:id="@+id/button_switch_to_login"
-                android:layout_width="wrap_content"
+        <!-- phone Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/input_age"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:text="Already have an account? Log in"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </ScrollView>
+                android:hint="@string/date_of_birth"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- phone Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/telephone"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="phone" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Confirm phone Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_confirm_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_telephone"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textEmailAddress" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- Signup Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/submit_register_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/white"
+            android:imeOptions="flagNoExtractUi"
+            android:text="@string/create_account" />
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_switch_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="Already have an account? Log in"
+            android:textSize="14sp" />
+
+    </LinearLayout>
 
 </FrameLayout>

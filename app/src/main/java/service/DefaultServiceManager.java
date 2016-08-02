@@ -43,5 +43,16 @@ public class DefaultServiceManager implements ServiceManager {
 
     }
 
+    @Override
+    public void storeUserRegistration() {
+
+
+    }
+
+    @Override
+    public void loginUser() {
+
+    }
+
 
 }

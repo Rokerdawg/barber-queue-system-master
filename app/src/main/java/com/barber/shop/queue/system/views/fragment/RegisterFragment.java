@@ -1,7 +1,6 @@
 package com.barber.shop.queue.system.views.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.barber.shop.queue.system.views.activity.LoginRegisterActivity;
 import com.queue.shop.barber.barbershopqueuesystem.R;
@@ -108,8 +106,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.submit_register_button) {
-            mListener.onRegisterFragmentInteraction(getUserData());
-//            ((LoginRegisterActivity)getActivity()).getLoginPresenter().dosomething()
+            ((LoginRegisterActivity)getActivity()).sendUserRegistration(getUserData());
         }
     }
 

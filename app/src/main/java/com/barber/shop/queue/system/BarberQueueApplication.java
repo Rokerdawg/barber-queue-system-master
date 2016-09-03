@@ -9,7 +9,6 @@ public class BarberQueueApplication extends Application {
 
     private static BarberQueueApplication mInstance;
 
-
     public static BarberQueueApplication getInstance(){
         return mInstance;
     }

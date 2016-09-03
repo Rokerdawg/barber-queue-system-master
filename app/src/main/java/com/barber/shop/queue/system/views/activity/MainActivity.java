@@ -20,6 +20,7 @@ import com.barber.shop.queue.system.views.fragment.RegisterFragment;
 import com.firebase.client.Firebase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
+import model.Customer;
 import service.DefaultServiceManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
@@ -169,12 +170,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onRegisterFragmentInteraction(Uri uri) {
-
-    }
-
-
-    @Override
     public void onLoginFragmentInteraction(boolean response) {
         if (response) {
 //            RegisterFragment registerFragment = new RegisterFragment();
@@ -186,6 +181,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        }
 
         }
+    }
+
+    @Override
+    public void onRegisterFragmentInteraction(Customer userRegistrationDetails) {
+
     }
 }
 

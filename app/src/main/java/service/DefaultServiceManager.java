@@ -1,8 +1,11 @@
 package service;
 import com.firebase.client.Firebase;
+import com.firebase.ui.auth.core.FirebaseAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
+
+import model.Customer;
 
 import static com.barber.shop.queue.system.BarberQueueApplication.*;
 
@@ -24,13 +27,13 @@ public class DefaultServiceManager implements ServiceManager {
 
     @Override
     public Firebase getDBConnection() {
-        return new Firebase(getInstance()
-                .getString(R.string.fb_connection_url));
-    }
-    // TODO - implement add customer to DB
-    @Override
-    public void addCustomerToDB() {
+        final Firebase myFirebaseRef = new Firebase(getInstance().
+                getString(R.string.firebase_connection_url));
+       return myFirebaseRef;
 
+    }
+    @Override
+    public void addCustomerToDB(Customer customer) {
     }
     // TODO - implement remove customer to DB
     @Override

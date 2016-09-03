@@ -14,6 +14,7 @@ import com.barber.shop.queue.system.util.DisableCoordinatorLayout;
 import com.barber.shop.queue.system.views.fragment.LoginFragment;
 import com.barber.shop.queue.system.views.fragment.RegisterFragment;
 import com.barber.shop.queue.system.views.fragment.RegisterFragment.OnRegisterFragmentInteractionListener;
+import com.firebase.client.Firebase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
 import model.Customer;
@@ -32,7 +33,6 @@ public class LoginRegisterActivity extends AppCompatActivity
     Customer registeredCustObject;
     DefaultServiceManager serviceManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,9 @@ public class LoginRegisterActivity extends AppCompatActivity
         setUpTabs();
         setUpViewpager();
         hideStatusBar();
-        registeredCustObject = new Customer();;
+        serviceManager = new DefaultServiceManager();
+        Firebase.setAndroidContext(this);
+
     }
 
     private void hideStatusBar() {
@@ -86,9 +88,9 @@ public class LoginRegisterActivity extends AppCompatActivity
         });
     }
 
-//    void sendUserRegistartion(){
-//        serviceManager.addCustomerToDB();
-//    }
+    public void sendUserRegistration(Customer customer){
+        serviceManager.addCustomerToDB(customer);
+    }
 
 
     @Override

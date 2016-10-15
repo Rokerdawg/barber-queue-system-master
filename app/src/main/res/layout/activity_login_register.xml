@@ -17,7 +17,7 @@
         <com.barber.shop.queue.system.util.DisableCoordinatorLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="1022dp"
+            android:layout_height="1128dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"

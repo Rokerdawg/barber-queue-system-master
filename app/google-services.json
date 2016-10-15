@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "227719646585-o9nci29s76bkn3qno78asuqdmngvlfpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.barber.shop.queue.system",
+            "certificate_hash": "2BE75CCDAA57C30D39E5CF78C3964E4246FA37E3"
+          }
+        },
+        {
           "client_id": "227719646585-0fv6ra2ch9arqsloume6o2c7gvmluo0h.apps.googleusercontent.com",
           "client_type": 3
         }

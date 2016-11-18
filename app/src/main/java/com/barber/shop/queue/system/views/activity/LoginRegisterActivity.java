@@ -54,21 +54,21 @@ public class LoginRegisterActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        mCollapsingToolbar = (DisableCoordinatorLayout) findViewById(R.id.collapsing_toolbar);
-        mCollapsingToolbar.setPassScrolling(false);
+//        mCollapsingToolbar = (DisableCoordinatorLayout) findViewById(R.id.collapsing_toolbar);
+//        mCollapsingToolbar.setPassScrolling(false);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appbar_layout);
-        mChooseText = (TextView) findViewById(R.id.choose_textview);
-        chooseSignInClickEvent();
+//        mChooseText = (TextView) findViewById(R.id.choose_textview);
+//        chooseSignInClickEvent();
     }
 
-    private void chooseSignInClickEvent() {
-        mChooseText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAppBarLayout.setExpanded(false, true);
-            }
-        });
-    }
+//    private void chooseSignInClickEvent() {
+//        mChooseText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mAppBarLayout.setExpanded(false, true);
+//            }
+//        });
+//    }
 
     private void setUpViewpager() {
         mVpPager = (ViewPager) findViewById(R.id.login_viewpager);

@@ -6,7 +6,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Name</string>
-    <string name="date_of_birth">Date of birth</string>
+    <string name="confirm_email">Confirm email</string>
     <string name="telephone">Telephone</string>
     <string name="confirm_telephone">Confirm telephone</string>
     <string name="email">Email</string>
@@ -20,4 +20,10 @@
     <string name="facebook_app_secret">9f0dd2f1ed8d0faa1e8e4542eca9cc09</string>
     <string name="twitter_app_key">TsKLfkX0mZxDdMSF2WV1RoRV9</string>
     <string name="twitter_app_secret">wsSJgjoNIUIN367sepGBWn4wi49CBMZ18iGoKakC42YIrfCwCP</string>
+    <string name="sign_in_with_google">Sign in with Google+</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="term_conditions">By signing up you agree to our Terms of Service and Privacy Policy</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="confirm_password">Confirm password</string>
 </resources>

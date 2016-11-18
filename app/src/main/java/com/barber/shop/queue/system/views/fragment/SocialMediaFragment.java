@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
@@ -14,14 +15,16 @@ import com.queue.shop.barber.barbershopqueuesystem.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SocialMediaLayout.OnFragmentInteractionListener} interface
+ * {@link SocialMediaFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class SocialMediaLayout extends Fragment {
+public class SocialMediaFragment extends Fragment {
+
+    Button facebookButton, twitterButton, googleButton;
 
     private OnFragmentInteractionListener mListener;
 
-    public SocialMediaLayout() {
+    public SocialMediaFragment() {
         // Required empty public constructor
     }
 
@@ -30,7 +33,11 @@ public class SocialMediaLayout extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_social_media_layout, container, false);
+        View v = inflater.inflate(R.layout.fragment_social_media_layout, container, false);
+        facebookButton = (Button) v.findViewById(R.id.btnFb);
+        twitterButton = (Button) v.findViewById(R.id.btnTwitter);
+        googleButton = (Button) v.findViewById(R.id.btnGplus);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

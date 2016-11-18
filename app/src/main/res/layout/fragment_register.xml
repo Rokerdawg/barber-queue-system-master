@@ -2,8 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/american_crew_splash"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.barber.shop.queue.system.views.fragment.RegisterFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +15,7 @@
         android:background="@color/transparent_overlay"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="80dp">
+        android:padding="90dp">
 
         <ImageView
             android:id="@+id/login_logo"
@@ -25,17 +29,15 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="8dp">
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textCapWords" />
+                style="@style/TextEntryStyle" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -43,36 +45,15 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="4dp">
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
-            <EditText
-                android:id="@+id/input_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/date_of_birth"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="text" />
-
-        </android.support.design.widget.TextInputLayout>
-
-
-        <!-- phone Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginTop="8dp">
-
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/telephone"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="phone" />
+                style="@style/PhoneEntryStyle"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -80,52 +61,78 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="8dp">
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_confirm_telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_telephone"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="phone" />
+                style="@style/PhoneEntryStyle" />
+
         </android.support.design.widget.TextInputLayout>
 
         <!--  Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginTop="8dp">
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textEmailAddress" />
+                style="@style/EmailEntryStyle" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Password Label -->
+        <!-- phone Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="8dp">
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/confirm_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_email"
+                style="@style/EmailEntryStyle"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textPassword" />
+                style="@style/PasswordEntryStyle" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputStyle"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_password"
+                style="@style/PasswordEntryStyle" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -141,7 +148,6 @@
             android:imeOptions="flagNoExtractUi"
             android:text="@string/create_account" />
 
-
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/button_switch_to_login"
             android:layout_width="wrap_content"
@@ -149,9 +155,29 @@
             android:layout_marginBottom="4dp"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:text="Already have an account? Log in"
+            android:text="@string/already_have_an_account_log_in"
             android:textSize="14sp" />
 
     </LinearLayout>
 
+        <TextView
+            android:id="@+id/terms_and_conditions"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:text="@string/term_conditions"
+            android:textColor="@color/txt_grey"
+            android:textSize="16sp"/>
+
+        <fragment class="com.barber.shop.queue.system.views.fragment.SocialMediaFragment"
+            android:id="@+id/registerSocialMediaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_social_media_layout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="35dp"/>
+
+    </RelativeLayout>
 </FrameLayout>

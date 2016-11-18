@@ -61,7 +61,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public void initViews(View v) {
         mLogo = (ImageView) v.findViewById(R.id.login_logo);
         mNameInput = (EditText) v.findViewById(R.id.input_name);
-        mAgeInput = (EditText) v.findViewById(R.id.input_age);
+        mAgeInput = (EditText) v.findViewById(R.id.confirm_email);
         mPhoneInput = (EditText) v.findViewById(R.id.input_telephone);
         mConfirmPhoneInput = (EditText) v.findViewById(R.id.input_confirm_telephone);
         mEmailInput = (EditText) v.findViewById(R.id.input_email);

@@ -1,5 +1,6 @@
 package com.barber.shop.queue.system.views.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -14,6 +15,7 @@ import com.barber.shop.queue.system.util.DisableCoordinatorLayout;
 import com.barber.shop.queue.system.views.fragment.LoginFragment;
 import com.barber.shop.queue.system.views.fragment.RegisterFragment;
 import com.barber.shop.queue.system.views.fragment.RegisterFragment.OnRegisterFragmentInteractionListener;
+import com.barber.shop.queue.system.views.fragment.SocialMediaFragment;
 import com.firebase.client.Firebase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
@@ -21,7 +23,7 @@ import model.Customer;
 import service.DefaultServiceManager;
 
 public class LoginRegisterActivity extends AppCompatActivity
-        implements OnRegisterFragmentInteractionListener,
+        implements SocialMediaFragment.OnFragmentInteractionListener, OnRegisterFragmentInteractionListener,
         LoginFragment.OnLoginFragmentInteractionListener {
 
     ViewPager mVpPager;
@@ -101,6 +103,11 @@ public class LoginRegisterActivity extends AppCompatActivity
     @Override
     public void onRegisterFragmentInteraction(Customer customer) {
 //        registeredCustObject = customer;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
 

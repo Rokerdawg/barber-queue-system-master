@@ -15,14 +15,14 @@ import com.queue.shop.barber.barbershopqueuesystem.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SocialMediaFragment.OnFragmentInteractionListener} interface
+ * {@link SocialMediaListener} interface
  * to handle interaction events.
  */
 public class SocialMediaFragment extends Fragment {
 
     Button facebookButton, twitterButton, googleButton;
 
-    private OnFragmentInteractionListener mListener;
+    private SocialMediaListener mListener;
 
     public SocialMediaFragment() {
         // Required empty public constructor
@@ -43,18 +43,18 @@ public class SocialMediaFragment extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onLoginBySocialMediaListener(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof SocialMediaListener) {
+            mListener = (SocialMediaListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement SocialMediaListener");
         }
     }
 
@@ -74,8 +74,8 @@ public class SocialMediaFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface SocialMediaListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onLoginBySocialMediaListener(Uri uri);
     }
 }

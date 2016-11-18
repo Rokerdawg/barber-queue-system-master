@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.barber.shop.queue.system.views.fragment.RegisterFragment">
+    tools:context="com.barber.shop.queue.system.LoginRegister.view.RegisterView">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -170,14 +170,24 @@
             android:textColor="@color/txt_grey"
             android:textSize="16sp"/>
 
-        <fragment class="com.barber.shop.queue.system.views.fragment.SocialMediaFragment"
-            android:id="@+id/registerSocialMediaFragment"
+        <include
+            layout="@layout/fragment_social_media_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout="@layout/fragment_social_media_layout"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="35dp"/>
+            android:layout_marginBottom="35dp"
+            />
+
+        <!--<fragment-->
+            <!--android:name ="com.barber.shop.queue.system.views.fragment.SocialMediaFragment"-->
+            <!--android:id="@+id/registerSocialMediaFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--tools:layout="@layout/fragment_social_media_layout"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="35dp"/>-->
 
     </RelativeLayout>
 </FrameLayout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.barber.shop.queue.system.views.fragment.LoginFragment">
+    tools:context="com.barber.shop.queue.system.LoginRegister.view.LoginView">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,10 +37,11 @@
 
                 <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/login_email_input"
+                    android:hint="@string/email_login"
                     style="@style/EmailEntryStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_login" />
+                    />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -54,9 +55,9 @@
                 <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/login_password_input"
                     style="@style/PasswordEntryStyle"
+                    android:hint="@string/password_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password_login"
                     android:inputType="textPassword" />
 
             </android.support.design.widget.TextInputLayout>
@@ -97,15 +98,24 @@
             android:textColor="@color/txt_grey"
             android:textSize="16sp" />
 
-        <fragment
-            android:id="@+id/loginSocialMediaFragment"
-            class="com.barber.shop.queue.system.views.fragment.SocialMediaFragment"
+        <include
+            layout="@layout/fragment_social_media_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="35dp"
-            tools:layout="@layout/fragment_social_media_layout" />
+            />
+
+        <!--<fragment-->
+            <!--android:id="@+id/loginSocialMediaFragment"-->
+            <!--android:name="com.barber.shop.queue.system.views.fragment.SocialMediaFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="35dp"-->
+            <!--tools:layout="@layout/fragment_social_media_layout" />-->
 
     </RelativeLayout>
 

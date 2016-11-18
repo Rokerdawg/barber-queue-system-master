@@ -14,18 +14,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.barber.shop.queue.system.views.fragment.LoginFragment;
+import com.barber.shop.queue.system.LoginRegister.view.LoginView;
+import com.barber.shop.queue.system.LoginRegister.view.RegisterView;
 import com.barber.shop.queue.system.views.fragment.QueueListFragment;
-import com.barber.shop.queue.system.views.fragment.RegisterFragment;
 import com.firebase.client.Firebase;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
-import model.Customer;
+import com.barber.shop.queue.system.model.Customer;
 import service.DefaultServiceManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        QueueListFragment.OnFragmentInteractionListener, RegisterFragment.OnRegisterFragmentInteractionListener,
-        LoginFragment.OnLoginFragmentInteractionListener {
+        QueueListFragment.OnFragmentInteractionListener, RegisterView.OnRegisterFragmentInteractionListener,
+        LoginView.Communicator {
 
     Button mViewQueueButton, mJoinQueueButton, mLeaveQueueButton, mRefreshQueueButton;
     Toolbar mToolbar;
@@ -152,8 +152,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 switchFragment(listFragment);
                 break;
             case R.id.button_add_customer:
-                LoginFragment loginFragment = new LoginFragment();
-                switchFragment(loginFragment);
+                LoginView loginView = new LoginView();
+                switchFragment(loginView);
                 break;
             case R.id.button_remove_customer:
                 // TODO - implement remove customer from queue and list
@@ -169,22 +169,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onLoginFragmentInteraction(boolean response) {
-        if (response) {
-//            RegisterFragment registerFragment = new RegisterFragment();
-//            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//
-//            transaction.replace(R.id.fragment_container, registerFragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-//        }
-
-        }
-    }
 
     @Override
     public void onRegisterFragmentInteraction(Customer userRegistrationDetails) {
+
+    }
+
+    @Override
+    public void onLoginFragmentInteraction(Customer customer) {
 
     }
 }

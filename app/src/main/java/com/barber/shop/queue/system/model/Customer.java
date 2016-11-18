@@ -1,4 +1,4 @@
-package model;
+package com.barber.shop.queue.system.model;
 
 /**
  * Created by rmcguigan on 25/07/2016.

@@ -26,4 +26,6 @@
     <string name="term_conditions">By signing up you agree to our Terms of Service and Privacy Policy</string>
     <string name="already_have_an_account_log_in">Already have an account? Log in</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="auth_failed">Firebase authentication failed</string>
+    <string name="title_activity_user_logged_in">UserLoggedIn</string>
 </resources>

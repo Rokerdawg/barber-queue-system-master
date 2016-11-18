@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.queue.shop.barber.barbershopqueuesystem" >
+    package="com.queue.shop.barber.barbershopqueuesystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- Facebook Configuration -->
         <activity
@@ -18,25 +18,27 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_app_id" />
 
         <!-- Twitter Configuration -->
         <activity android:name="com.firebase.ui.auth.twitter.TwitterPromptActivity" />
+
         <meta-data
             android:name="com.firebase.ui.TwitterKey"
-            android:value="@string/twitter_app_key"/>
+            android:value="@string/twitter_app_key" />
         <meta-data
             android:name="com.firebase.ui.TwitterSecret"
-            android:value="@string/twitter_app_secret"/>
+            android:value="@string/twitter_app_secret" />
 
         <activity
-            android:name="com.barber.shop.queue.system.views.activity.LoginRegisterActivity"
+            android:name="com.barber.shop.queue.system.LoginRegister.view.LoginRegisterHost"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,6 +49,10 @@
             android:name="com.barber.shop.queue.system.views.activity.MainActivity"
             android:label="@string/title_activity_login_register"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.barber.shop.queue.system.LoginRegister.view.UserLoggedIn"
+            android:label="@string/title_activity_user_logged_in"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

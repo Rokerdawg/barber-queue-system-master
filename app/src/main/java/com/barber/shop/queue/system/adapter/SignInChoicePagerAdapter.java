@@ -1,12 +1,7 @@
 package com.barber.shop.queue.system.adapter;
 
-import android.app.FragmentManager;
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.barber.shop.queue.system.views.fragment.LoginFragment;
-import com.barber.shop.queue.system.views.fragment.RegisterFragment;
 
 import java.util.ArrayList;
 import java.util.List;

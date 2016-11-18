@@ -44,7 +44,6 @@
     </style>
 
 
-
     <style name="CustonTextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textColorHint">@color/txt_grey</item>

@@ -1,4 +1,4 @@
-package com.barber.shop.queue.system.views.fragment;
+package com.barber.shop.queue.system.LoginRegister.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,15 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.barber.shop.queue.system.views.activity.LoginRegisterActivity;
+import com.barber.shop.queue.system.LoginRegister.interfaces.ILoginView;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
-import model.Customer;
+import com.barber.shop.queue.system.model.Customer;
 
 /**
  * Handles the register fragment Ui and user interaction
  */
-public class RegisterFragment extends Fragment implements View.OnClickListener {
+public class RegisterView extends Fragment implements ILoginView.RegisterViewStuff, View.OnClickListener {
 
     ImageView mLogo;
     EditText mNameInput, mPhoneInput, mConfirmPhoneInput, mEmailInput, mPasswordInput, mAgeInput;
@@ -29,12 +29,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     OnRegisterFragmentInteractionListener mListener;
 
-    public RegisterFragment() {
+    public RegisterView() {
         // Required empty public constructor
     }
 
-    public static RegisterFragment newInstance(int page, String title) {
-        RegisterFragment fragment = new RegisterFragment();
+    public static RegisterView newInstance(int page, String title) {
+        RegisterView fragment = new RegisterView();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         args.putString("someTitle", title);
@@ -87,17 +87,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         mListener = null;
     }
 
-    //TODO - Form validation and exception handling!! Just store whatever input for now!!
-
-    Customer getUserData() {
-        Customer customer = new Customer();
-        customer.setName(mNameInput.getText().toString());
-        customer.setTelephoneNumber(mPhoneInput.getText().toString());
-        customer.setEmailAddress(mEmailInput.getText().toString());
-        customer.setPassword(mPasswordInput.getText().toString());
-        return customer;
-    }
-
 
     public interface OnRegisterFragmentInteractionListener {
         void onRegisterFragmentInteraction(Customer userRegistrationDetails);
@@ -106,7 +95,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.submit_register_button) {
-            ((LoginRegisterActivity)getActivity()).sendUserRegistration(getUserData());
+//            ((LoginRegisterHost)getActivity()).sendUserRegistration(getUserData());
+
         }
     }
 

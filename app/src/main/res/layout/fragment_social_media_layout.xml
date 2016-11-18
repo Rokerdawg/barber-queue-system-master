@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.barber.shop.queue.system.views.fragment.SocialMediaLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/linearlayout_bg">
+
+        <Button
+            android:id="@+id/btnGplus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonText"
+            android:background="@drawable/layers_gplus_button_bg"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Sign in with Google+"
+            />
+        <Button
+            android:id="@+id/btnFb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonText"
+            android:padding="10dp"
+            android:background="@drawable/button_fb_gb"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Sign in with Facebook"
+            />
+        <Button
+            android:id="@+id/btnTwitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ButtonText"
+            android:padding="10dp"
+            android:background="@drawable/button_twitter_gb"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Sign in with Twitter"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

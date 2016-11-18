@@ -14,6 +14,8 @@ public interface ILoginView extends BaseActivityInterface{
 
     interface LoginViewStuff{
         FirebaseAuth getAuth();
+        void showProgressBar();
+        void hideProgressBar();
     }
 
 }

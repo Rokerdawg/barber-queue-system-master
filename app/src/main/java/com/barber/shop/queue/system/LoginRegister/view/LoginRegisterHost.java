@@ -1,5 +1,6 @@
 package com.barber.shop.queue.system.LoginRegister.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -37,6 +38,7 @@ public class LoginRegisterHost extends AppCompatActivity
     LoginPresenter loginPresenter;
     public FirebaseAuth mAuth;
     public FirebaseAuth.AuthStateListener mAuthListener;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,20 @@ public class LoginRegisterHost extends AppCompatActivity
 
     public FirebaseAuth getAuth(){
         return mAuth;
+    }
+
+    @Override
+    public void showProgressBar() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Logging in...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressDialog.dismiss();
     }
 
     public void initPresenters() {

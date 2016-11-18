@@ -105,5 +105,9 @@ public class BarberQueueApplication extends Application {
                 });
     }
 
+    public void logUserOut(){
+        FirebaseAuth.getInstance().signOut();
+    }
+
 
 }

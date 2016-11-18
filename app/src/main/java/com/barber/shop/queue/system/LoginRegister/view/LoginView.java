@@ -1,6 +1,7 @@
 package com.barber.shop.queue.system.LoginRegister.view;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     public static final String ARG_PAGE = "ARG_PAGE";
     String email = "";
     String password ="";
+    ProgressDialog progressDialog;
 
     public LoginView() {
         // Required empty public constructor
@@ -110,6 +112,7 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.button_login){
+            showProgressBar();
             email = mEmailLogin.getText().toString();
             password = mPasswordLogin.getText().toString();
             Customer user = new Customer();
@@ -128,6 +131,20 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     @Override
     public FirebaseAuth getAuth() {
         return null;
+    }
+
+    @Override
+    public void showProgressBar() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Logging in...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressDialog.dismiss();
     }
 
     public interface Communicator {

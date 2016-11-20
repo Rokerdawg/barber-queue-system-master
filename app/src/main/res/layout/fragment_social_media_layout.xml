@@ -10,14 +10,13 @@
         android:orientation="horizontal"
         android:background="@color/black">
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGplus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonText"
-            android:background="@drawable/layer_gplus_button"
-            android:padding="10dp"
-            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
             android:text="@string/sign_in_with_google"
             />

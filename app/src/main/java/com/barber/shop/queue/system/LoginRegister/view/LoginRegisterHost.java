@@ -1,6 +1,7 @@
 package com.barber.shop.queue.system.LoginRegister.view;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -18,6 +19,7 @@ import com.barber.shop.queue.system.LoginRegister.presenter.RegisterPresenter;
 import com.barber.shop.queue.system.adapter.SignInChoicePagerAdapter;
 import com.barber.shop.queue.system.LoginRegister.view.RegisterView.OnRegisterFragmentInteractionListener;
 import com.firebase.client.Firebase;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.queue.shop.barber.barbershopqueuesystem.R;
@@ -114,6 +116,14 @@ public class LoginRegisterHost extends AppCompatActivity
         mAuth.addAuthStateListener(mAuthListener);
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
     private void setUpViewpager() {
         mVpPager = (ViewPager) findViewById(R.id.login_viewpager);
         vpAdapter = new SignInChoicePagerAdapter(getSupportFragmentManager());
@@ -133,6 +143,8 @@ public class LoginRegisterHost extends AppCompatActivity
     }
 
 
+
+
     @Override
     public void onRegisterFragmentInteraction(Customer customer) {
 //        registeredCustObject = customer;
@@ -140,7 +152,7 @@ public class LoginRegisterHost extends AppCompatActivity
 
     @Override
     public void onLoginFragmentInteraction(Customer response) {
-        loginPresenter.loginUser(response);
+        loginPresenter.loginUserByEmail(response);
     }
 }
 

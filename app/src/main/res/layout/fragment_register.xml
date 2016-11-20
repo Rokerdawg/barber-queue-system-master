@@ -15,7 +15,7 @@
         android:background="@color/transparent_overlay"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="90dp">
+        android:padding="110dp">
 
         <ImageView
             android:id="@+id/login_logo"

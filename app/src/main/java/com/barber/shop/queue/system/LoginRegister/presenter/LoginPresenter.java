@@ -36,7 +36,7 @@ public class LoginPresenter implements BasePresenterInterface, ServiceManager.Lo
     }
 
     @Override
-    public void loginUser(Customer customer) {
+    public void loginUserByEmail(Customer customer) {
         String email = customer.getEmailAddress();
         String password = customer.getPassword();
 

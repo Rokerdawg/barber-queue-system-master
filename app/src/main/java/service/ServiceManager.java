@@ -19,6 +19,6 @@ public interface ServiceManager {
     }
 
     interface LoginUser {
-        void loginUser(Customer customer);
+        void loginUserByEmail(Customer customer);
     }
 }

@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +26,13 @@ import com.barber.shop.queue.system.LoginRegister.interfaces.ILoginView;
 import com.barber.shop.queue.system.model.Customer;
 import com.barber.shop.queue.system.views.activity.MainActivity;
 import com.barber.shop.queue.system.views.fragment.SocialMediaFragment;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -38,11 +44,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.queue.shop.barber.barbershopqueuesystem.R;
 
 import static android.support.v7.content.res.AppCompatResources.getDrawable;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 /**
@@ -54,17 +62,19 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     private static final String TAG = LoginView.class.getSimpleName();
     ImageView mLogo;
     EditText mEmailLogin, mPasswordLogin;
-    Button mSubmitLoginButton;
-    Button mMoveToRegsiter;
     Communicator mListener;
     public static final String ARG_PAGE = "ARG_PAGE";
     String email = "";
     String password ="";
     ProgressDialog progressDialog;
     SignInButton googleSignIn;
+    Button mSubmitLoginButton;
+    Button mMoveToRegsiter;
+    LoginButton mFacebookButton;
     private final static int RC_SIGN_IN = 1;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
+    private CallbackManager mCallbackManager;
 
     public LoginView() {
         // Required empty public constructor
@@ -84,6 +94,7 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        FacebookSdk.sdkInitialize(getApplicationContext());
     }
 
     @Override
@@ -93,8 +104,73 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
         initViews(v);
         clickListener();
         googleSignIn();
+        facebookSignIn();
         return v;
     }
+
+    private void facebookSignIn() {
+        // Initialize Facebook Login button
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        mCallbackManager = CallbackManager.Factory.create();
+        mFacebookButton.setReadPermissions("email", "public_profile");
+        mFacebookButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+                getActivity().startActivity(new Intent(getActivity(), UserLoggedIn.class));
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(TAG, "facebook:onError", error);
+                // ...
+            }
+        });
+    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+//    }
+
+    // [START auth_with_facebook]
+    private void handleFacebookAccessToken(AccessToken token) {
+        Log.d(TAG, "handleFacebookAccessToken:" + token);
+        // [START_EXCLUDE silent]
+        showProgressBar();
+        // [END_EXCLUDE]
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithCredential", task.getException());
+                            Toast.makeText(getActivity(), "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // [START_EXCLUDE]
+                        hideProgressBar();
+                        // [END_EXCLUDE]
+                    }
+                });
+    }
+    // [END auth_with_facebook]
 
     private void clickListener() {
         mSubmitLoginButton.setOnClickListener(this);
@@ -109,6 +185,7 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     private void initViews(View v) {
 //        mLogo = (ImageView)v.findViewById(R.id.login_logo);
         googleSignIn = (SignInButton)v.findViewById(R.id.btnGplus);
+        mFacebookButton = (LoginButton) v.findViewById(R.id.button_facebook_login);
         mEmailLogin = (AppCompatEditText)v.findViewById(R.id.login_email_input);
         mPasswordLogin = (AppCompatEditText)v.findViewById(R.id.login_password_input);
         mSubmitLoginButton = (Button)v.findViewById(R.id.button_login);
@@ -186,6 +263,8 @@ public class LoginView extends Fragment implements ILoginView.LoginViewStuff,
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {

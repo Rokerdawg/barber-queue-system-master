@@ -34,7 +34,7 @@ public class SocialMediaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_social_media_layout, container, false);
-        facebookButton = (Button) v.findViewById(R.id.btnFb);
+        facebookButton = (Button) v.findViewById(R.id.button_facebook_login);
         twitterButton = (Button) v.findViewById(R.id.btnTwitter);
         googleButton = (Button) v.findViewById(R.id.btnGplus);
         return v;

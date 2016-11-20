@@ -18,6 +18,7 @@ import com.barber.shop.queue.system.LoginRegister.presenter.LoginPresenter;
 import com.barber.shop.queue.system.LoginRegister.presenter.RegisterPresenter;
 import com.barber.shop.queue.system.adapter.SignInChoicePagerAdapter;
 import com.barber.shop.queue.system.LoginRegister.view.RegisterView.OnRegisterFragmentInteractionListener;
+import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +46,7 @@ public class LoginRegisterHost extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login_register);
         initViews();
         setUpTabs();
